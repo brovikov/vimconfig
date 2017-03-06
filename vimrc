@@ -61,29 +61,29 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jpo/vim-railscasts-theme'
+Plugin 'gmarik/Vundle.vim'            " Vim plugins bundler
+Plugin 'tpope/vim-rails'              " Rails plugin
+Plugin 'tpope/vim-fugitive'           " may very well be the best Git wrapper
+Plugin 'scrooloose/nerdtree'          " File navigator
+" Plugin 'jpo/vim-railscasts-theme'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-Plugin 'craigemery/vim-autotag'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'Raimondi/delimitMate'
-Plugin 'ngmy/vim-rubocop'
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'majutsushi/tagbar'
-Plugin 'terryma/vim-smooth-scroll'
-Plugin 'vim-scripts/indexer.tar.gz'
-Plugin 'vim-scripts/matchit.zip'
-Plugin 'vim-scripts/DfrankUtil'
-Plugin 'vim-scripts/vimprj'
-Plugin 'vim-scripts/closetag.vim'
+Plugin 'garbas/vim-snipmate'          " aims to provide support for snippets
+Plugin 'honza/vim-snippets'           " snippets for different lenguages
+Plugin 'craigemery/vim-autotag'       " autotag changes
+Plugin 'ctrlpvim/ctrlp.vim'           " Ctrl P - pretty cool file finder
+Plugin 'tomtom/tcomment_vim'          " Comments
+Plugin 'Raimondi/delimitMate'         " Raimondi/delimitMate
+Plugin 'ngmy/vim-rubocop'             " Rubocop wraper
+Plugin 'jlanzarotta/bufexplorer'      " Buffer explorer
+Plugin 'airblade/vim-gitgutter'       " shows a git diff in gutter sign column
+Plugin 'majutsushi/tagbar'            " Tag Bar
+Plugin 'terryma/vim-smooth-scroll'    " Smooth scrolling
+Plugin 'vim-scripts/indexer.tar.gz'   " Plugin 'vim-scripts/indexer.tar.gz'
+Plugin 'vim-scripts/matchit.zip'      " % to match more than just single characters.
+Plugin 'vim-scripts/DfrankUtil'       " Just a library for some scripts
+Plugin 'vim-scripts/vimprj'           " helps manage options for multiple projects
+Plugin 'vim-scripts/closetag.vim'     " <- Under testing. Not work properly
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
