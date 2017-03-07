@@ -20,10 +20,14 @@ noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
 
+" Set autocompetion
+:let g:closetag_html_style=1
+:au Filetype html,xml,xsl,eruby source ~/.vim/scripts/closetag.vim
+
 " Custom keys mapping
 nnoremap <F5> :buffers<CR>:buffer<Space>
 " Buffers - explore/next/previous: Alt-F12, F12, Shift-F12.
-nnoremap <silent> <F12> :BufExplorer<CR>
+nnoremap <silent> <tab> :BufExplorer<CR>
 nnoremap <silent> <M-F12> :bn<CR>
 nnoremap <silent> <S-F12> :bp<CR>
 noremap <silent> <F8> :TagbarToggle<CR>
@@ -62,7 +66,7 @@ let g:NERDTreeWinPos = "left"
 set guioptions-=T " Removes top toolbar
 set guioptions-=r " Removes right hand scroll bar
 set go-=L " Removes left hand scroll bar
-autocmd FileType gitcommit setlocal spell
+autocmd FileType gitcommit setlocal spell " Set file types for auto spell check
 autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" " displays <% %> correctly
 :set cpoptions+=$ " puts a $ marker for the end of words/lines in cw/c$ commands
 " The Silver Searcher
@@ -80,7 +84,7 @@ endif
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " bind \ (backward slash) to grep shortcut
-" command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 
 nnoremap \ :Ag<SPACE>
 
@@ -111,7 +115,7 @@ Plugin 'vim-scripts/indexer.tar.gz'   " Plugin 'vim-scripts/indexer.tar.gz'
 Plugin 'vim-scripts/matchit.zip'      " % to match more than just single characters.
 Plugin 'vim-scripts/DfrankUtil'       " Just a library for some scripts
 Plugin 'vim-scripts/vimprj'           " helps manage options for multiple projects
-Plugin 'vim-scripts/closetag.vim'     " <- Under testing. Not work properly
+" Plugin 'vim-scripts/closetag.vim'     " <- Under testing. Not work properly
 Plugin 'thoughtbot/vim-rspec'         " Rspec wrapper
 
 " The following are examples of different formats supported.
