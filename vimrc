@@ -1,6 +1,12 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+" russian letters
+set keymap=russian-jcukenwin
+set iminsert=0
+set imsearch=0
+" highlight lCursor guifg=NONE guibg=Cyan
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 :set tags=./tags;
@@ -36,7 +42,8 @@ noremap <silent> <F8> :TagbarToggle<CR>
 noremap <silent> <c-k> :call smooth_scroll#up(3, 30, 1)<CR>
 noremap <silent> <c-j> :call smooth_scroll#down(3, 30, 1)<CR>
 
-noremap <silent> <F10> :NERDTreeFind<CR>
+noremap <silent> <S-tab> :NERDTreeFind<CR>
+let NERDTreeMapActivateNode='<space>'
 
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
@@ -45,7 +52,7 @@ map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 :let g:rspec_command = "!bin/spring rspec {spec} --format documentation"
 " Setup clipboard to be available to X clipboard
-" set clipboard=unnamed
+" set clipboard=unnamedplus
 " Send more characters for redraws
 set ttyfast
 " Enable mouse use in all modes
@@ -54,10 +61,12 @@ set mouse=a
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
 set ttymouse=xterm2
 
-color codeschool
-hi LineNr ctermfg=8 ctermbg=Black
+" color codeschool
+syntax on
+colorscheme onedark
+" hi LineNr ctermfg=8 ctermbg=Black
 hi ColorColumn ctermbg=8
-hi NonText ctermbg=Black
+" hi NonText ctermbg=Black
 set nowrap
 set tabstop=2 shiftwidth=2
 set expandtab
@@ -117,6 +126,12 @@ Plugin 'vim-scripts/DfrankUtil'       " Just a library for some scripts
 Plugin 'vim-scripts/vimprj'           " helps manage options for multiple projects
 " Plugin 'vim-scripts/closetag.vim'     " <- Under testing. Not work properly
 Plugin 'thoughtbot/vim-rspec'         " Rspec wrapper
+Plugin 'wakatime/vim-wakatime'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'joshdick/onedark.vim'
+Plugin 'sheerun/vim-polyglot'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -124,4 +139,11 @@ Plugin 'thoughtbot/vim-rspec'         " Rspec wrapper
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
+function! s:DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! DiffSaved call s:DiffWithSaved()
